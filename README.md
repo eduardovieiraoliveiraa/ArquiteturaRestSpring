@@ -16,15 +16,15 @@ A ClasseServiceImpl deve ser notada como @Service. É Nessa classe que você ir�
 
 Você será obrigador a implementar o metodo getRepository, nele você irá retornar o seu repository que será injetado em seu seviceImpl.
 
------------------------------Repository-----------------------------
+-----------------------------------------------------------------Repository-----------------------------------------------------------------------------
 Em seu repository você precisa extender apenas o JPARepository normalmente.
 
-----------------------------Controller-------------------------------
+-----------------------------------------------------------------Controller-----------------------------------------------------------------------------
 Em seu Controller é necessário extender o AbstractController<Entity, DTO>, ele exigirá que você implemente 3 metodos: 
   - getService: SuaInterfaceService.class
   - getModelClass: SuaEntity.class
   - getDTOClass: SeuDto.class
---------------------------Configuration-------------------
+-----------------------------------------------------------------Configuration-----------------------------------------------------------------------------
 Em seu projeto será necessário criar uma classe de configuração para registrar o Bean ModelMapper que é usado na arquitetura para efetuar a conversão de seus objetos.
 Crie uma classe com nome de  sua escolha notada com o @Configuration e crie um metodo que retorno um new ModelMapper notado com @Bean
 
@@ -39,8 +39,7 @@ public class ModelMapperConfig {
     }
 }
 
-----------------------------------------
-
+-----------------------------------------------------------------Uso-----------------------------------------------------------------------------
 Para usar em seu projeto você pode baixar o projeto e importar em sua workspace e colocar as dependencias do mesmo em seu projeto.
 	<dependency>
 			<groupId>br.com.eduardo.spring.arquitetura</groupId>
@@ -56,7 +55,6 @@ ou se preferir pode criar um jar do projeto e importar em seu maven localemnte c
 exemplo:
 mvn install:install-file -Dfile=C:\Documentos\desenvolvimento\workspaces\estudo\jar/arquiteturaspring.jar -DgroupId=br.com.eduardo.spring.arquitetura -DartifactId=arquiteturaspring -Dversion=0.0.2-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
 
----------------------------------------------
 Teste no PostMan:
 
 Seu Path + POST = Insert
