@@ -9,7 +9,7 @@ Em sua entity é necessario extender o AbstractModel
 
 Em seu DTO é necessário extender o AbstractDTO
 
------------------------------------------------------------------Service---------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------Service-----------------------------------------------------------------------------
 Necessário criar uma interface que será seu service, como por exemplo ProdutoService. Esse service irá extender extends ICrudService<SuaEntity>
 você precisa criar uma implementação dessa interface que será o ProdutoServiceImpl por exemplo. Sua implementação irá extender de CrudServiceImpl<SuaEntitiy> e logicamente implementar seu Service.
 A ClasseServiceImpl deve ser notada como @Service. É Nessa classe que você irá criar suas regras de negocio.
