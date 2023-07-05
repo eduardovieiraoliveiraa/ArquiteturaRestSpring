@@ -1,6 +1,7 @@
 # ArquiteturaRestSpring
 
-Olá, desenvolvedor. Esse projeto foi criado com a intenção de simplificar a criação de crud com spring.
+Olá, desenvolvedor. Esse projeto foi criado com a intenção de simplificar a criação de crud com spring. Com essa arquitetura você precisa apenas efetuar algumas configurações e seu CRUD estará pronto
+com o insert, update, delete, findAll, findById e uma busca paginada, não será preciso criar nenhum desses metodos em seu controller. As chamadas serão executadas da forma default dos metodos HTTP.
 
 Para utilizar é necessário implementar algumas coisas. 
 
@@ -54,3 +55,12 @@ ou se preferir pode criar um jar do projeto e importar em seu maven localemnte c
 
 exemplo:
 mvn install:install-file -Dfile=C:\Documentos\desenvolvimento\workspaces\estudo\jar/arquiteturaspring.jar -DgroupId=br.com.eduardo.spring.arquitetura -DartifactId=arquiteturaspring -Dversion=0.0.2-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+---------------------------------------------
+Teste no PostMan:
+
+Seu Path + POST = Insert
+Seu Path + PUT = Update
+Seu Path/Id + GET = findById
+Seu Path + GET = findAll
+Seu Path/Id + DELETE = delete
