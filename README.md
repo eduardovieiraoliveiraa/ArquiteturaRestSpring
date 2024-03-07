@@ -7,7 +7,31 @@ Para utilizar é necessário implementar algumas coisas.
 
 Em sua entity é necessario extender o AbstractModel
 
-Em seu DTO é necessário extender o AbstractDTO
+Em seu DTO é necessário extender o AbstractDTO ou 
+AbstractHateOASDTO caso deseje usar HATEOAS Em sua API, caso extenda AbstractHateOASDTO sera necessario:
+	-> Em seu DTO você será obrigado a implementar o metodo getController() onde sera passado o retorno de sua classe controladora desse DTO. Isso foi criado para atender o HATEOAS. Para ativar o HATEOAS em sua API basta colocar a notação 
+	@ShowLinkHateoas nas classes que deseja.
+
+ EX: 
+ @ShowLinkHateoas
+public class ClienteDTO extends AbstractHateOASDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private Long id;
+	private String nome;
+	private Integer idade;
+	private String cpf;
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public Class<?> getController() {
+		return ClienteController.class;
+	}
+}
 
 -----------------------------------------------------------------Service-----------------------------------------------------------------------------
 Necessário criar uma interface que será seu service, como por exemplo ProdutoService. Esse service irá extender extends ICrudService<SuaEntity>
@@ -41,11 +65,11 @@ public class ModelMapperConfig {
 
 -----------------------------------------------------------------Uso-----------------------------------------------------------------------------
 Para usar em seu projeto você pode baixar o projeto e importar em sua workspace e colocar as dependencias do mesmo em seu projeto.
-	<dependency>
+		<dependency>
 			<groupId>br.com.eduardo.spring.arquitetura</groupId>
 			<artifactId>arquiteturaspring</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
-	</dependency>
+		</dependency>
 
 ou se preferir pode criar um jar do projeto e importar em seu maven localemnte com o comando
 -Dfile= Caminho do seu jar
