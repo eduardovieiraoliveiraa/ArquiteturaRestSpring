@@ -13,8 +13,10 @@ AbstractHateOASDTO caso deseje usar HATEOAS Em sua API, caso extenda AbstractHat
 	@ShowLinkHateoas nas classes que deseja.
 
  EX: 
- @ShowLinkHateoas
-public class ClienteDTO extends AbstractHateOASDTO implements Serializable {
+
+ 
+ 	@ShowLinkHateoas
+	public class ClienteDTO extends AbstractHateOASDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long id;
@@ -31,7 +33,7 @@ public class ClienteDTO extends AbstractHateOASDTO implements Serializable {
 	public Class<?> getController() {
 		return ClienteController.class;
 	}
-}
+	}
 
 -----------------------------------------------------------------Service-----------------------------------------------------------------------------
 Necessário criar uma interface que será seu service, como por exemplo ProdutoService. Esse service irá extender extends ICrudService<SuaEntity>
@@ -65,11 +67,21 @@ public class ModelMapperConfig {
 
 -----------------------------------------------------------------Uso-----------------------------------------------------------------------------
 Para usar em seu projeto você pode baixar o projeto e importar em sua workspace e colocar as dependencias do mesmo em seu projeto.
-		<dependency>
-			<groupId>br.com.eduardo.spring.arquitetura</groupId>
-			<artifactId>arquiteturaspring</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
+
+seu pom.xml ------->}
+
+
+	dependency>
+	
+	<groupId>br.com.eduardo.spring.arquitetura</groupId>
+	
+	<artifactId>arquiteturaspring</artifactId>
+	
+	<version>0.0.2-SNAPSHOT</version>
+	
+	</dependency>
+
+}
 
 ou se preferir pode criar um jar do projeto e importar em seu maven localemnte com o comando
 -Dfile= Caminho do seu jar
