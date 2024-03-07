@@ -11,6 +11,7 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.stereotype.Component;
 
 import br.com.eduardo.spring.arquitetura.arquiteturaspring.abstractUtil.AbstractDTO;
+import br.com.eduardo.spring.arquitetura.arquiteturaspring.abstractUtil.AbstractHateOASDTO;
 import br.com.eduardo.spring.arquitetura.arquiteturaspring.annotation.ShowLinkHateoas;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
@@ -64,7 +65,7 @@ public abstract class HateoasComponet<DTO> {
 	
 	@SuppressWarnings("unchecked")
 	private void setLinkDetails(Object objetoFilhoDTO) {
-		var controller = ((AbstractDTO) objetoFilhoDTO).getController();
+		var controller = ((AbstractHateOASDTO) objetoFilhoDTO).getController();
 
 		((RepresentationModel<AbstractDTO>) objetoFilhoDTO).add(WebMvcLinkBuilder.linkTo(controller).slash(((AbstractDTO) objetoFilhoDTO).getId()).withSelfRel());
         ((RepresentationModel<AbstractDTO>) objetoFilhoDTO).add(linkTo(controller).withRel(IanaLinkRelations.COLLECTION));
